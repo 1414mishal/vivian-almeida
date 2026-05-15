@@ -37,8 +37,11 @@ export const DOCTOR = {
 export const MAPS_QUERY = encodeURIComponent(
   "Amritha Poly Clinic, KRR Road, Hampankatta, Mangaluru, Karnataka 575001"
 );
-export const MAPS_EMBED = `https://www.google.com/maps?q=${MAPS_QUERY}&output=embed`;
-export const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
+/** Pin-accurate iframe embed (coordinates 12.873°N, 74.849°E — Amritha Poly Clinic). */
+export const MAPS_EMBED =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1944.7694099624387!2d74.84913950336544!3d12.873036365633622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2c6f4d06b9a9cbd0!2zMTLCsDUyJzIyLjkiTiA3NMKwNTAnNTkuNCJF!5e0!3m2!1sen!2sus!4v1649649465802!5m2!1sen!2sus";
+/** Clinic-shared Maps short link — used for "Get Directions" CTAs. */
+export const MAPS_LINK = "https://share.google/ZeDK0t5Ikj9nBeTmX";
 
 /* ── Credentials & training ─────────────────────────────────────── */
 
@@ -405,7 +408,7 @@ export const LOCATIONS: Location[] = [
       { display: "081474 21567", href: "tel:+918147421567" },
       { display: "0824 242 1341", href: "tel:+918242421341" },
     ],
-    mapsUrl: "https://goo.gl/maps/CrZx8dmecESN7pmy8",
+    mapsUrl: "https://share.google/ZeDK0t5Ikj9nBeTmX",
     kind: "primary",
   },
   {

@@ -94,28 +94,12 @@ module.exports = {
           "70%": { boxShadow: "0 0 0 12px hsl(var(--primary) / 0)" },
           "100%": { boxShadow: "0 0 0 0 hsl(var(--primary) / 0)" },
         },
-        "spine-scan-beam": {
-          "0%": { transform: "translateY(0px)", opacity: "0" },
-          "10%": { opacity: "1" },
-          "90%": { opacity: "1" },
-          "100%": { transform: "translateY(440px)", opacity: "0" },
-        },
-        "spine-scan-halo": {
-          "0%": { transform: "translateY(0px)", opacity: "0" },
-          "15%": { opacity: "0.55" },
-          "85%": { opacity: "0.55" },
-          "100%": { transform: "translateY(480px)", opacity: "0" },
-        },
       },
       animation: {
         aurora: "aurora 60s linear infinite",
         "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
         float: "float 7s ease-in-out infinite",
         "pulse-ring": "pulse-ring 3s infinite",
-        "spine-scan-beam":
-          "spine-scan-beam 4.2s ease-in-out infinite",
-        "spine-scan-halo":
-          "spine-scan-halo 4.2s ease-in-out infinite",
       },
     },
   },
