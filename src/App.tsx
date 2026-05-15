@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/ui/animated-hero";
 import { Specialties } from "@/components/sections/specialties";
+import { SpineScan } from "@/components/sections/spine-scan";
 import { Conditions } from "@/components/sections/conditions";
 import { Stats } from "@/components/sections/stats";
 import { About } from "@/components/sections/about";
@@ -17,6 +18,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <Specialties />
+      <SpineScan />
       <Conditions />
       <Stats />
       <About />
