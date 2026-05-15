@@ -94,20 +94,12 @@ module.exports = {
           "70%": { boxShadow: "0 0 0 12px hsl(var(--primary) / 0)" },
           "100%": { boxShadow: "0 0 0 0 hsl(var(--primary) / 0)" },
         },
-        spotlight: {
-          "0%": { opacity: "0", transform: "translate(-72%, -62%) scale(0.5)" },
-          "100%": {
-            opacity: "1",
-            transform: "translate(-50%, -40%) scale(1)",
-          },
-        },
       },
       animation: {
         aurora: "aurora 60s linear infinite",
         "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
         float: "float 7s ease-in-out infinite",
         "pulse-ring": "pulse-ring 3s infinite",
-        spotlight: "spotlight 2s ease 0.4s 1 forwards",
       },
     },
   },
