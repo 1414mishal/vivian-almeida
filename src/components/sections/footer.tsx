@@ -8,6 +8,7 @@ const QUICK_LINKS = [
   { label: "Patient Journey", href: "#journey" },
   { label: "Visiting Hours", href: "#hours" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Press & Research", href: "#media" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -46,6 +47,13 @@ export function Footer() {
               >
                 <Phone className="h-4 w-4 text-primary" />
                 {DOCTOR.phoneDisplay}
+              </a>
+              <a
+                href={DOCTOR.secondaryPhoneHref}
+                className="flex items-center gap-2.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
+              >
+                <Phone className="h-4 w-4 text-primary" />
+                {DOCTOR.secondaryPhoneDisplay}
               </a>
               <a
                 href={MAPS_LINK}

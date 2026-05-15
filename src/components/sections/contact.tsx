@@ -1,38 +1,98 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Clock, MapPin, Navigation, Phone } from "lucide-react";
+import { CalendarClock, Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
-import { DOCTOR, MAPS_EMBED, MAPS_LINK } from "@/lib/clinic";
+import {
+  DOCTOR,
+  LOCATIONS,
+  MAPS_EMBED,
+  MAPS_LINK,
+  type Location,
+} from "@/lib/clinic";
 import { useClinicStatus } from "@/hooks/use-clinic-status";
+import { cn } from "@/lib/utils";
+
+const KIND_BADGE: Record<Location["kind"], string> = {
+  primary: "Main clinic",
+  weekly: "Weekly visit",
+  monthly: "Monthly visit",
+  appointment: "By appointment",
+};
+
+function LocationCard({
+  location,
+  featured,
+}: {
+  location: Location;
+  featured?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "glass-panel glass-panel-hover flex flex-col p-7",
+        featured && "border-primary/30"
+      )}
+    >
+      <div className="mb-4 flex items-center gap-2">
+        <span
+          className={cn(
+            "data-chip",
+            featured && "bg-primary/15 text-primary"
+          )}
+        >
+          {KIND_BADGE[location.kind]}
+        </span>
+      </div>
+
+      <h3 className="font-display text-lg font-bold tracking-tight">
+        {location.name}
+      </h3>
+
+      <address className="not-italic mt-3 space-y-0.5 text-sm leading-relaxed text-muted-foreground">
+        {location.building && <div>{location.building}</div>}
+        {location.street && <div>{location.street}</div>}
+        <div>{location.area}</div>
+        <div>{location.city}</div>
+      </address>
+
+      <div className="mt-5 space-y-2.5 text-sm">
+        {location.timing && (
+          <div className="flex items-start gap-2.5">
+            <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <span className="text-foreground">{location.timing}</span>
+          </div>
+        )}
+        {location.phones?.map((phone) => (
+          <a
+            key={phone.href}
+            href={phone.href}
+            className="flex items-start gap-2.5 text-foreground transition-colors hover:text-primary"
+          >
+            <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <span className="font-medium">{phone.display}</span>
+          </a>
+        ))}
+      </div>
+
+      <a
+        href={location.mapsUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+      >
+        <Navigation className="h-4 w-4" />
+        Get directions
+      </a>
+    </div>
+  );
+}
 
 export function Contact() {
   const status = useClinicStatus();
-
-  const INFO = [
-    {
-      icon: MapPin,
-      label: "Clinic address",
-      lines: [DOCTOR.address.line1, DOCTOR.address.line2],
-    },
-    {
-      icon: Building2,
-      label: "Practice",
-      lines: [DOCTOR.practice, `at ${DOCTOR.building}`],
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      lines: [DOCTOR.phoneDisplay],
-      href: DOCTOR.phoneHref,
-    },
-    {
-      icon: Clock,
-      label: "Visiting hours",
-      lines: [`${status.label} · ${status.detail}`, "Open Monday to Saturday"],
-    },
-  ];
+  const primary = LOCATIONS.find((l) => l.kind === "primary")!;
+  const others = LOCATIONS.filter((l) => l.kind !== "primary");
 
   return (
     <section
@@ -44,53 +104,64 @@ export function Contact() {
       <div className="relative mx-auto w-full max-w-container px-5 md:px-12">
         <SectionHeading
           eyebrow="Visit the Clinic"
-          title="Find us in Hampankatta"
-          description="Centrally located on KRR Road in the heart of Mangaluru — easy to reach, with the full address and live directions below."
+          title="Four locations across Mangaluru & Kanhangad"
+          description="The main clinic in Hampankatta runs Monday to Saturday — with additional weekly visits at three partner clinics. Pick whichever is easiest to reach."
         />
 
+        {/* Primary clinic — info + map */}
         <div className="mt-14 grid grid-cols-1 gap-6 lg:mt-16 lg:grid-cols-12 lg:gap-8">
-          {/* Contact details */}
           <motion.div
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-panel p-8 lg:col-span-5"
+            className="glass-panel border-primary/30 p-8 lg:col-span-5"
           >
-            <ul className="space-y-6">
-              {INFO.map((item) => (
-                <li key={item.label} className="flex items-start gap-4">
-                  <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-primary/15 bg-primary/5 text-primary">
-                    <item.icon className="h-5 w-5" strokeWidth={1.7} />
+            <span className="data-chip bg-primary/15 text-primary">
+              {KIND_BADGE.primary}
+            </span>
+
+            <h3 className="mt-4 font-display text-2xl font-bold tracking-tight">
+              {primary.name}
+            </h3>
+            <address className="not-italic mt-3 space-y-0.5 text-sm leading-relaxed text-muted-foreground">
+              <div className="text-foreground">{primary.building}</div>
+              <div>{primary.street}</div>
+              <div>{primary.area}</div>
+              <div>{primary.city}</div>
+            </address>
+
+            <div className="mt-6 space-y-3 text-sm">
+              <div className="flex items-start gap-2.5">
+                <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-foreground">
+                  <span className="font-semibold">{status.label}</span>{" "}
+                  <span className="text-muted-foreground">
+                    · {status.detail}
                   </span>
-                  <div className="min-w-0">
-                    <p className="eyebrow text-muted-foreground">
-                      {item.label}
-                    </p>
-                    <div className="mt-1.5 space-y-0.5">
-                      {item.lines.map((line, idx) =>
-                        item.href && idx === 0 ? (
-                          <a
-                            key={line}
-                            href={item.href}
-                            className="block text-sm font-medium text-foreground transition-colors hover:text-primary"
-                          >
-                            {line}
-                          </a>
-                        ) : (
-                          <p
-                            key={line}
-                            className="text-sm font-medium text-foreground"
-                          >
-                            {line}
-                          </p>
-                        )
-                      )}
-                    </div>
-                  </div>
-                </li>
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-foreground">Open Monday to Saturday</span>
+              </div>
+              {primary.phones?.map((phone) => (
+                <a
+                  key={phone.href}
+                  href={phone.href}
+                  className="flex items-start gap-2.5 text-foreground transition-colors hover:text-primary"
+                >
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <span className="font-medium">{phone.display}</span>
+                </a>
               ))}
-            </ul>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-foreground">
+                  {DOCTOR.address.full}
+                </span>
+              </div>
+            </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -125,7 +196,7 @@ export function Contact() {
           >
             <div className="relative h-[340px] overflow-hidden rounded-lg sm:h-[440px] lg:h-[520px]">
               <iframe
-                title={`Map to ${DOCTOR.building}, Hampankatta`}
+                title={`Map to ${primary.building}, Mangaluru`}
                 src={MAPS_EMBED}
                 className="absolute inset-0 h-full w-full dark:[filter:invert(0.92)_hue-rotate(180deg)_brightness(0.95)_contrast(0.95)]"
                 style={{ border: 0 }}
@@ -135,6 +206,28 @@ export function Contact() {
               />
             </div>
           </motion.div>
+        </div>
+
+        {/* Other locations */}
+        <div className="mt-10">
+          <p className="eyebrow text-primary">Other weekly visits</p>
+          <div className="mt-5 grid gap-5 md:grid-cols-3">
+            {others.map((location, index) => (
+              <motion.div
+                key={location.name}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <LocationCard location={location} />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

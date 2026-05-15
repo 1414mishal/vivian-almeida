@@ -5,9 +5,9 @@ import {
   Bandage,
   Bone,
   Dumbbell,
-  Footprints,
+  Hand,
   Microscope,
-  ShieldPlus,
+  PersonStanding,
   type LucideIcon,
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -15,11 +15,11 @@ import { SPECIALTIES, type SpecialtyKey } from "@/lib/clinic";
 
 const ICONS: Record<SpecialtyKey, LucideIcon> = {
   joint: Bone,
-  arthroscopy: Microscope,
-  knee: Footprints,
+  back: PersonStanding,
   sports: Dumbbell,
-  trauma: Bandage,
-  arthritis: ShieldPlus,
+  hand: Hand,
+  arthroscopy: Microscope,
+  fractures: Bandage,
 };
 
 export function Specialties() {

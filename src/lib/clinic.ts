@@ -6,23 +6,32 @@
 
 export const DOCTOR = {
   name: "Dr. Vivian R D'Almeida",
+  fullName: "Dr. Vivian Roshan D'Almeida",
   shortName: "Dr. D'Almeida",
   title: "Orthopaedic Surgeon",
   practice: "Ortho 1 Speciality Clinic",
   practiceTagline: "Orthopaedic Specialists Under One Roof",
+  practiceSubTagline: "First time in Mangalore — a clinic with joint, spine and hand specialists together under one roof.",
   building: "Amritha Poly Clinic",
   affiliation: "Fr. Muller Medical College Hospital, Mangaluru",
   city: "Mangaluru",
   region: "Karnataka",
   phoneDisplay: "081474 21567",
   phoneHref: "tel:+918147421567",
+  secondaryPhoneDisplay: "0824 242 1341",
+  secondaryPhoneHref: "tel:+918242421341",
   reviewsUrl:
     "https://www.google.com/search?q=Dr.+Vivian+R+D%27Almeida+Orthopaedic+Surgeon+Mangaluru",
   address: {
-    line1: "KRR Road, Hampankatta",
-    line2: "Mangaluru, Karnataka 575001",
-    full: "KRR Road, Hampankatta, Mangaluru, Karnataka 575001",
+    line1: "Amritha Poly Clinic, KRR Road, Hampankatta",
+    line2: "near Jyothi Circle, Mangaluru, Karnataka 575001",
+    full: "Amritha Poly Clinic, KRR Road, Hampankatta, Mangaluru, Karnataka 575001",
   },
+  expertise: [
+    "Hip and knee replacement surgery",
+    "Ligament reconstruction",
+    "Fracture fixation",
+  ],
 } as const;
 
 export const MAPS_QUERY = encodeURIComponent(
@@ -87,9 +96,10 @@ export const QUALIFICATIONS: Qualification[] = [
 
 /** Doctor biography — paragraphs, sourced from the practice's own profile. */
 export const BIO: string[] = [
-  "Dr. Vivian R D'Almeida is an orthopaedic surgeon based in Mangaluru, specialised in joint replacement and arthroscopic keyhole surgeries.",
-  "He currently serves as faculty at Fr. Muller Medical College Hospital, Mangaluru — combining everyday clinical practice with the training of the next generation of surgeons.",
+  "Dr. Vivian R D'Almeida is an orthopaedic surgeon based in Mangaluru, specialised in joint replacement and arthroscopic keyhole surgeries. He currently serves as faculty at Fr. Muller Medical College Hospital, Mangaluru — combining everyday clinical practice with the training of the next generation of surgeons.",
   "After completing his MBBS at St. John's Medical College, Bangalore, he finished his MS in Orthopaedics in 2009. He went on to earn the MRCS from the Royal College of Surgeons of Ireland in 2010 and of England in 2011, followed by a fellowship in Knee Surgery at Paik Hospitals, Seoul in 2012. He has also trained in Sports Medicine at Ortho One Hospital, Coimbatore and the Hospital for Joint Diseases, New York University.",
+  "His expertise mainly involves hip and knee replacement surgery, ligament injuries and fracture fixation. He performs a wide array of procedures that are patient-specific, with personalised care for people from every walk of life.",
+  "Dr. D'Almeida is part of a team initiative at Ortho 1 Speciality Clinic, located in the heart of Mangaluru — a first-of-its-kind orthopaedic practice in the city, bringing joint, spine and hand specialists together under one roof.",
 ];
 
 /* ── Opening hours ───────────────────────────────────────────────
@@ -220,11 +230,11 @@ export function getClinicStatus(): ClinicStatus {
 
 export type SpecialtyKey =
   | "joint"
-  | "arthroscopy"
-  | "knee"
+  | "back"
   | "sports"
-  | "trauma"
-  | "arthritis";
+  | "hand"
+  | "arthroscopy"
+  | "fractures";
 
 export type Specialty = {
   key: SpecialtyKey;
@@ -234,14 +244,39 @@ export type Specialty = {
   chips: string[];
 };
 
+/** The six services as listed on Ortho 1's existing practice site. */
 export const SPECIALTIES: Specialty[] = [
   {
     key: "joint",
-    title: "Joint Replacement",
-    blurb: "Knee & hip replacement",
+    title: "Knee & Hip Replacement",
+    blurb: "Joint arthroplasty",
     description:
-      "Primary and complex knee and hip replacement — including advanced joint surgery — to restore pain-free movement and lasting function.",
-    chips: ["Knee", "Hip", "Advanced"],
+      "Primary and complex knee and hip replacement surgery — restoring pain-free movement and lasting joint function.",
+    chips: ["Knee", "Hip", "Arthroplasty"],
+  },
+  {
+    key: "back",
+    title: "Backache Problems",
+    blurb: "Spine & back care",
+    description:
+      "Evaluation and treatment of back pain and spine conditions — surgical and non-surgical — supported by an in-house spine specialist at Ortho 1.",
+    chips: ["Back Pain", "Spine", "Disc"],
+  },
+  {
+    key: "sports",
+    title: "Sports Medicine",
+    blurb: "Injury & rehabilitation",
+    description:
+      "Ligament injuries, cartilage repair and structured rehabilitation — helping athletes return to play safely and confidently.",
+    chips: ["Ligament", "Rehab", "Return-to-Play"],
+  },
+  {
+    key: "hand",
+    title: "Hand & Micro Vascular Surgery",
+    blurb: "Fine surgical care",
+    description:
+      "Hand, wrist and micro-vascular procedures — delivered with the in-house hand specialist who is part of the Ortho 1 team.",
+    chips: ["Hand", "Wrist", "Micro Surgery"],
   },
   {
     key: "arthroscopy",
@@ -252,36 +287,12 @@ export const SPECIALTIES: Specialty[] = [
     chips: ["Keyhole", "Minimally Invasive", "Day-care"],
   },
   {
-    key: "knee",
-    title: "Knee Surgery",
-    blurb: "ACL, meniscus & cartilage",
-    description:
-      "Dedicated knee care — from ligament reconstruction and meniscal repair to cartilage procedures and persistent knee pain.",
-    chips: ["ACL", "Meniscus", "Cartilage"],
-  },
-  {
-    key: "sports",
-    title: "Sports Medicine",
-    blurb: "Injury & rehabilitation",
-    description:
-      "Treatment of sports and ligament injuries with structured rehabilitation, helping athletes return to play safely and confidently.",
-    chips: ["Ligament", "Rehab", "Return-to-Play"],
-  },
-  {
-    key: "trauma",
-    title: "Fracture & Trauma Care",
+    key: "fractures",
+    title: "Fractures",
     blurb: "Bone injury management",
     description:
       "Prompt, precise management of fractures and orthopaedic trauma — from simple breaks to complex bone and joint injuries.",
     chips: ["Fracture", "Trauma", "Fixation"],
-  },
-  {
-    key: "arthritis",
-    title: "Arthritis Management",
-    blurb: "Bone & joint disorders",
-    description:
-      "Long-term care for arthritis and degenerative bone and joint disorders, with surgical and non-surgical options matched to your stage.",
-    chips: ["Arthritis", "Joint Pain", "Non-surgical"],
   },
 ];
 
@@ -364,3 +375,195 @@ export const HIGHLIGHTS: Highlight[] = [
     text: "Dedicated expertise in joint replacement and arthroscopic keyhole surgery of the knee.",
   },
 ];
+
+/* ── Clinic locations ──────────────────────────────────────────── */
+
+export type LocationKind = "primary" | "weekly" | "monthly" | "appointment";
+
+export type Location = {
+  name: string;
+  building?: string;
+  street?: string;
+  area: string;
+  city: string;
+  pin?: string;
+  timing?: string;
+  phones?: { display: string; href: string }[];
+  mapsUrl: string;
+  kind: LocationKind;
+};
+
+export const LOCATIONS: Location[] = [
+  {
+    name: "Ortho 1 Speciality Clinic",
+    building: "Amritha Poly Clinic",
+    street: "KRR Road, Hampankatta",
+    area: "near Jyothi Circle",
+    city: "Mangaluru, Karnataka 575001",
+    timing: "Monday to Saturday — see visiting hours",
+    phones: [
+      { display: "081474 21567", href: "tel:+918147421567" },
+      { display: "0824 242 1341", href: "tel:+918242421341" },
+    ],
+    mapsUrl: "https://goo.gl/maps/CrZx8dmecESN7pmy8",
+    kind: "primary",
+  },
+  {
+    name: "Healthcare Medical Centre",
+    building: "Akarshan Building",
+    street: "Main Road",
+    area: "Bajpe",
+    city: "Mangaluru",
+    timing: "Monday & Thursday",
+    phones: [{ display: "081474 21567", href: "tel:+918147421567" }],
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Akarshan+Building+Bajpe+Mangaluru",
+    kind: "weekly",
+  },
+  {
+    name: "Mount Rosary Hospital",
+    area: "Alangar",
+    city: "Moodubidri",
+    timing: "Every Sunday",
+    mapsUrl: "https://g.page/MountRosary?share",
+    kind: "weekly",
+  },
+  {
+    name: "UR Doctor Clinic",
+    area: "Kanhangad",
+    city: "Kasaragod, Kerala",
+    timing: "By appointment only",
+    mapsUrl: "https://goo.gl/maps/3bw5SFJ9BKFJybQt8",
+    kind: "appointment",
+  },
+];
+
+/* ── Press, research, articles & community appearances ────────── */
+
+export type MediaCategory =
+  | "research"
+  | "article"
+  | "video"
+  | "community"
+  | "press";
+
+export type MediaItem = {
+  date?: string;
+  title: string;
+  description?: string;
+  source: string;
+  url: string;
+  category: MediaCategory;
+};
+
+export const MEDIA: MediaItem[] = [
+  {
+    date: "03 Jan 2017",
+    title: "Bolaike Daaiz — Konkani Health Show",
+    description:
+      "Dr. Vivian Roshan D'Almeida on the popular Konkani-language health programme.",
+    source: "YouTube",
+    url: "https://youtu.be/quuX7blZrU0",
+    category: "video",
+  },
+  {
+    date: "13 Jan 2017",
+    title: "Know All About Total Knee Replacement",
+    description:
+      "Joint deterioration (osteoarthritis) affects every aspect of life — this article explains the path through total knee replacement.",
+    source: "Daijiworld",
+    url: "http://www.daijiworld.com/chan/exclusiveDisplay.aspx?articlesID=3917",
+    category: "article",
+  },
+  {
+    date: "28 Feb 2016",
+    title: "Osteoporosis: All You Wanted to Know",
+    description:
+      "Osteoporosis weakens bone abnormally due to mineral loss, raising the chance of fractures even after a trivial injury.",
+    source: "Daijiworld",
+    url: "http://www.daijiworld.com/chan/exclusiveDisplay.aspx?articlesID=2539",
+    category: "article",
+  },
+  {
+    date: "04 Aug 2015",
+    title: "Sports Injuries of the Knee",
+    description:
+      "Knee injuries can have long-term effects, especially in younger patients. An overview of anatomy, common injuries and treatment.",
+    source: "Daijiworld",
+    url: "http://www.daijiworld.com/chan/exclusiveDisplay.aspx?articlesID=2485",
+    category: "article",
+  },
+  {
+    title: "Scientific Contributions",
+    description:
+      "Peer-reviewed research papers and contributions by Dr. Vivian Roshan D'Almeida.",
+    source: "ResearchGate",
+    url: "https://www.researchgate.net/scientific-contributions/2097186200_Vivian_Roshan_DAlmeida",
+    category: "research",
+  },
+  {
+    date: "12 Jun 2017",
+    title:
+      "Proximal Femoral Nailing vs Dynamic Hip Screw — Intertrochanteric Fractures",
+    description:
+      "A comparative study of proximal femoral nailing versus the dynamic hip screw device in the surgical management of intertrochanteric fractures.",
+    source: "International Journal of Orthopaedics Sciences",
+    url: "http://www.orthopaper.com/archives/2017/vol3issue3/PartK/3-2-110-945.pdf",
+    category: "research",
+  },
+  {
+    date: "27 Feb 2013",
+    title:
+      "Arthroscopic Excision of Solitary Intra-articular Osteochondroma of the Knee",
+    description:
+      "Osteochondroma is the most common benign tumour of the growing bone, commonly involving the knee joint region.",
+    source: "NCBI / PMC",
+    url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3597844/",
+    category: "research",
+  },
+  {
+    date: "31 Jan 2018",
+    title: "SANJEEVINI — The Blood Donation Camp",
+    description:
+      "Held on 31 January 2018 at the AIMIT campus, Beeri, of St Aloysius College.",
+    source: "St Aloysius Mangalore",
+    url: "https://twitter.com/staloymangalore/status/958994456031694848",
+    category: "community",
+  },
+  {
+    date: "25 Nov 2017",
+    title: "St Aloysius Hr Pr School Sports Day",
+    description:
+      "Today's Aloysians, Future Sportsmen of India — St Aloysius Higher Primary School Sports Day.",
+    source: "Mangalorean.com",
+    url: "http://www.mangalorean.com/todays-aloysians-future-sportsmen-of-india-st-aloysius-hr-pr-school-sports-day-kicks-off/",
+    category: "community",
+  },
+  {
+    title: "Dr Vivian D'Almeida Secures MRCS from Ireland",
+    source: "Daijiworld",
+    url: "http://www.daijiworld.com/news/newsDisplay.aspx?newsID=91915",
+    category: "press",
+  },
+  {
+    title: "Dr Vivian Roshan D'Almeida Bags Fifth Rank in MS Orthopaedics",
+    source: "Daijiworld",
+    url: "http://www.daijiworld.com/news/newsDisplay.aspx?newsID=71639",
+    category: "press",
+  },
+  {
+    title: "Dr Vivian Roshan D'Almeida Gets 5th Rank",
+    source: "Mangalore Today",
+    url: "http://www.mangaloretoday.com/newsbriefs/Dr-Vivian-Roshan-D-rsquo-Almeida-gets-5th-rank.html",
+    category: "press",
+  },
+];
+
+/** Human-readable label + ordering for media category badges. */
+export const MEDIA_CATEGORY_LABEL: Record<MediaCategory, string> = {
+  research: "Research",
+  article: "Article",
+  video: "Media",
+  community: "Community",
+  press: "Press",
+};

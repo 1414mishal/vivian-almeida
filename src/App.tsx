@@ -7,6 +7,7 @@ import { About } from "@/components/sections/about";
 import { PatientJourney } from "@/components/sections/patient-journey";
 import { Hours } from "@/components/sections/hours";
 import { Reviews } from "@/components/sections/reviews";
+import { Media } from "@/components/sections/media";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 
@@ -22,6 +23,7 @@ export default function App() {
       <PatientJourney />
       <Hours />
       <Reviews />
+      <Media />
       <Contact />
       <Footer />
     </div>
