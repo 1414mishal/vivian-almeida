@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
@@ -133,34 +133,50 @@ function Skull() {
 }
 
 export function SkullScene({ className }: SkullSceneProps) {
+  // r3f v8 occasionally misses its initial ResizeObserver fire under
+  // React 18 StrictMode, leaving the canvas at its default 300x150.
+  // Firing synthetic resize events at staggered offsets reliably wakes the
+  // observer regardless of mount timing.
+  useEffect(() => {
+    const fire = () => window.dispatchEvent(new Event("resize"));
+    const t1 = window.setTimeout(fire, 0);
+    const t2 = window.setTimeout(fire, 120);
+    const t3 = window.setTimeout(fire, 400);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+    };
+  }, []);
+
   return (
-    <div className={className}>
-      <Canvas
-        camera={{ position: [0, 0.25, 4.2], fov: 38 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
-      >
-        <Suspense fallback={null}>
-          {/* Lighting — cool, slightly cinematic, brand-cyan biased */}
-          <ambientLight intensity={0.45} />
-          <pointLight position={[3, 3.5, 4]} intensity={2.4} color="#bff1e3" />
-          <pointLight position={[-3, 1.5, 2.5]} intensity={1.6} color={CYAN_GLOW} />
-          <pointLight position={[0, -2, 2]} intensity={0.7} color="#5fb8ff" />
+    <Canvas
+      className={className}
+      style={{ touchAction: "none" }}
+      camera={{ position: [0, 0.25, 4.2], fov: 38 }}
+      dpr={[1, 2]}
+      gl={{ antialias: true, alpha: true }}
+    >
+      <Suspense fallback={null}>
+        {/* Lighting — cool, slightly cinematic, brand-cyan biased */}
+        <ambientLight intensity={0.45} />
+        <pointLight position={[3, 3.5, 4]} intensity={2.4} color="#bff1e3" />
+        <pointLight position={[-3, 1.5, 2.5]} intensity={1.6} color={CYAN_GLOW} />
+        <pointLight position={[0, -2, 2]} intensity={0.7} color="#5fb8ff" />
 
-          <Skull />
+        <Skull />
 
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            autoRotate
-            autoRotateSpeed={0.6}
-            enableDamping
-            dampingFactor={0.06}
-            minPolarAngle={Math.PI / 3.2}
-            maxPolarAngle={Math.PI - Math.PI / 3.2}
-          />
-        </Suspense>
-      </Canvas>
-    </div>
+        <OrbitControls
+          enableZoom={false}
+          enablePan={false}
+          autoRotate
+          autoRotateSpeed={0.6}
+          enableDamping
+          dampingFactor={0.06}
+          minPolarAngle={Math.PI / 3.2}
+          maxPolarAngle={Math.PI - Math.PI / 3.2}
+        />
+      </Suspense>
+    </Canvas>
   );
 }

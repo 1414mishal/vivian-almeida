@@ -36,7 +36,7 @@ export function Anatomy3D() {
 
             <div className="flex h-full flex-col md:flex-row">
               {/* Left content */}
-              <div className="relative z-10 flex flex-1 flex-col justify-center p-8 md:p-12">
+              <div className="relative z-10 flex flex-col justify-center p-8 md:flex-1 md:p-12">
                 <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
                   <MousePointerClick className="h-3.5 w-3.5 text-primary" />
                   <span className="eyebrow text-foreground/90">
@@ -58,7 +58,7 @@ export function Anatomy3D() {
               </div>
 
               {/* Right content — 3D skull */}
-              <div className="relative h-[420px] flex-1 md:h-full">
+              <div className="relative h-[420px] md:h-full md:flex-1">
                 <SkullScene className="h-full w-full" />
               </div>
             </div>
