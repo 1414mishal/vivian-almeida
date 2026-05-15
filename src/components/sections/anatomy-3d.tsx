@@ -4,22 +4,8 @@ import { motion } from "framer-motion";
 import { MousePointerClick } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
-import { SplineScene } from "@/components/ui/splite";
+import { SkullScene } from "@/components/ui/skull-scene";
 import { SectionHeading } from "@/components/ui/section-heading";
-
-/**
- * 3D model URL for the Spline scene. The default below is Spline's canonical
- * sample scene (a working placeholder). To use a skeleton / skull model:
- *
- *   1. Go to https://spline.design  →  Community  →  search "skeleton" or "skull"
- *   2. Open the scene  →  click "Remix" (free account) or use as-is if public
- *   3. Export  →  "Public URL"  →  copy the .splinecode link
- *   4. Replace the URL below.
- *
- * That single change swaps the 3D content; everything else stays the same.
- */
-const SPLINE_SCENE_URL =
-  "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
 
 export function Anatomy3D() {
   return (
@@ -32,7 +18,7 @@ export function Anatomy3D() {
           align="center"
           eyebrow="Interactive 3D"
           title="Anatomy you can rotate."
-          description="Drag, rotate, explore — a small interactive tribute to the elegant biomechanics behind every procedure."
+          description="Drag to explore — a small interactive tribute to the elegant biomechanics behind every procedure."
         />
 
         <motion.div
@@ -66,17 +52,14 @@ export function Anatomy3D() {
                 </h3>
                 <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
                   Every consultation begins with anatomy. Take a moment to
-                  explore the model — the same kind of detail we use to explain
+                  explore the model — the same kind of detail used to explain
                   your diagnosis at the clinic.
                 </p>
               </div>
 
-              {/* Right content — Spline 3D */}
+              {/* Right content — 3D skull */}
               <div className="relative h-[420px] flex-1 md:h-full">
-                <SplineScene
-                  scene={SPLINE_SCENE_URL}
-                  className="h-full w-full"
-                />
+                <SkullScene className="h-full w-full" />
               </div>
             </div>
           </Card>

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Phone, ShieldPlus, Stethoscope } from "lucide-react";
+import { ArrowRight, MapPin, Phone, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { CREDENTIALS_SHORT, DOCTOR, SPECIALTIES } from "@/lib/clinic";
@@ -42,16 +42,8 @@ function Hero() {
         transition={{ delay: 0.15, duration: 0.8, ease: "easeInOut" }}
         className="relative z-10 mx-auto flex w-full max-w-container flex-col items-center px-5 pb-28 pt-32 text-center md:px-12 md:pt-36"
       >
-        {/* practice positioning pill */}
-        <div className="glass-panel inline-flex items-center gap-2 rounded-full px-4 py-1.5">
-          <ShieldPlus className="h-3.5 w-3.5 text-primary" />
-          <span className="eyebrow text-foreground/90">
-            {DOCTOR.practiceTagline}
-          </span>
-        </div>
-
         {/* clinic eyebrow */}
-        <p className="eyebrow mt-8 text-primary">
+        <p className="eyebrow text-primary">
           {DOCTOR.practice} · {DOCTOR.city}
         </p>
 
