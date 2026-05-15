@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Specialties | Dr. Vivian R D'Almeida</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#00382d",
+                    "on-primary-fixed": "#0d1c32",
+                    "surface-variant": "#2a344d",
+                    "on-primary-container": "#74829d",
+                    "surface": "#08132a",
+                    "inverse-on-surface": "#263049",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed-variant": "#39475f",
+                    "surface-dim": "#08132a",
+                    "on-tertiary-container": "#7282a5",
+                    "primary-fixed-dim": "#b9c7e4",
+                    "primary": "#b9c7e4",
+                    "surface-container-low": "#101b33",
+                    "secondary": "#41e4c0",
+                    "on-secondary-fixed": "#002019",
+                    "on-secondary-fixed-variant": "#005142",
+                    "surface-container": "#151f37",
+                    "inverse-primary": "#515f78",
+                    "secondary-fixed-dim": "#38debb",
+                    "surface-tint": "#b9c7e4",
+                    "on-tertiary": "#20304f",
+                    "on-error": "#690005",
+                    "tertiary": "#b6c6ed",
+                    "on-tertiary-fixed": "#091b39",
+                    "primary-container": "#0a192f",
+                    "on-surface": "#d9e2ff",
+                    "background": "#08132a",
+                    "surface-container-highest": "#2a344d",
+                    "tertiary-container": "#061836",
+                    "secondary-fixed": "#5ffbd6",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#44474d",
+                    "on-primary": "#233148",
+                    "tertiary-fixed": "#d8e2ff",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#374767",
+                    "surface-bright": "#2f3952",
+                    "on-surface-variant": "#c5c6cd",
+                    "surface-container-high": "#1f2942",
+                    "inverse-surface": "#d9e2ff",
+                    "secondary-container": "#00c7a5",
+                    "tertiary-fixed-dim": "#b6c6ed",
+                    "outline": "#8f9097",
+                    "primary-fixed": "#d6e3ff",
+                    "on-background": "#d9e2ff",
+                    "on-secondary-container": "#004d3f",
+                    "surface-container-lowest": "#030d25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "grid-margin": "48px",
+                    "container-max": "1280px",
+                    "section-gap-mobile": "64px",
+                    "base": "8px",
+                    "section-gap-desktop": "120px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Geist"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Geist"
+                    ],
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "headline-lg": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08132a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a344d; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #41e4c0; 
+        }
+        
+        /* Subtle glow animation for accents */
+        @keyframes subtle-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(65, 228, 192, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(65, 228, 192, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(65, 228, 192, 0); }
+        }
+        .glow-pulse {
+            animation: subtle-pulse 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary/30 selection:text-secondary pt-20">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/10 backdrop-blur-xl border-b border-secondary/20 transition-all duration-300 ease-linear-out">
+<div class="flex justify-between items-center px-grid-margin max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight hover:text-secondary transition-colors duration-200" href="#">
+                Dr. Vivian R D'Almeida
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-secondary border-b-2 border-secondary pb-1 transition-all duration-300 ease-linear-out" href="#">Specialties</a>
+<a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-3 py-1 rounded transition-all duration-300 ease-linear-out" href="#">Patient Journey</a>
+<a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-3 py-1 rounded transition-all duration-300 ease-linear-out" href="#">Locations</a>
+</nav>
+<!-- Trailing Action -->
+<a class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-on-secondary font-label-sm text-label-sm rounded-lg hover:bg-secondary-fixed transition-colors duration-200 glow-pulse" href="#">
+                Elite Booking
+            </a>
+<!-- Mobile Menu Toggle (Decorative for visual completeness) -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section: Robotic-Assisted Surgery -->
+<section class="relative min-h-[921px] flex items-center justify-start overflow-hidden px-grid-margin">
+<!-- Background Image Area with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"></div>
+<img alt="Robotic surgery background" class="w-full h-full object-cover object-center opacity-40" data-alt="A highly detailed 3D rendering of a modern robotic surgical suite in a dark, clinical environment. Sleek mechanical arms are illuminated by precise, intense cyan laser guides against a deep navy background. The atmosphere is highly technical, pristine, and futuristic, emphasizing surgical precision and advanced medical technology. Subtle lens flares highlight the polished metal surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjjmfHRE4Xae0asbN400stU7KJEZOhvgoUchFTkgkQvx7PYeo7K76LJfiKJuLnBQhG-MTgEqszWtC9e77-YxZ4gRSQl59W8Htnc1bQhd6YUhbT7CO4aq4XNkA_ecDr3hmczDI0QUp7CCxf8xF67Ft_ZFEsLMP4Z3of_BIBGR91c8z1eLWZ-IFFnSU0kuRcSzacsV7-HLASPB9CVgUeVfIaBKDLJ18Q82Zfb247du5KOmsbi8dudbhz4Zl0X-SrljMW0vcMlNQw2ZY"/>
+</div>
+<div class="relative z-20 max-w-3xl w-full">
+<div class="bg-surface-container/40 backdrop-blur-2xl border border-secondary/30 p-10 md:p-14 rounded-xl shadow-[0_0_40px_rgba(65,228,192,0.1)] relative overflow-hidden group">
+<!-- Subtle inner glow effect -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-secondary/20 transition-all duration-500"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Pinnacle Precision</span>
+<div class="h-px bg-secondary/50 flex-grow max-w-[100px]"></div>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">
+                        Robotic-Assisted <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary">Orthopedics</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        Experience the intersection of surgical mastery and sub-millimeter robotic precision. Dr. D'Almeida utilizes cutting-edge systems to ensure optimal implant alignment, minimizing recovery time and maximizing joint longevity.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-secondary text-on-secondary font-label-sm text-label-sm rounded-lg hover:bg-secondary-fixed transition-colors duration-200">
+                            Explore Technology
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialty Grid Section -->
+<section class="py-section-gap-desktop px-grid-margin max-w-container-max mx-auto">
+<div class="mb-16 md:mb-24 text-center">
+<h2 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg text-on-surface mb-6">Clinical Expertise</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Specialized procedures executed with meticulous attention to detail, utilizing minimally invasive techniques whenever possible.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group relative bg-surface-container border border-surface-bright rounded-xl overflow-hidden hover:border-secondary/50 transition-all duration-300 min-h-[400px] flex flex-col cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-highest z-10"></div>
+<div class="h-48 relative z-0 overflow-hidden">
+<img alt="Joint Replacement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" data-alt="A stylized, high-contrast close-up of a high-tech titanium hip replacement implant resting on a dark, sterile metallic surface. Subtle cyan blue lighting catches the polished curves of the metal, emphasizing its smooth, flawless engineering. The background drops off into a deep, clinical navy void, projecting an image of premium medical hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKf2OXvweVjwsGPF8h1DHzFdDs8GZ8aXFmKcGA8-7sFHCy4WPRlXUZJiZdX8hgjfLuWNKKo4Vm8b0s1ixpdVRc05y-J8Ce2vhOPfT3mF_5o2UUEgCVJ1TVgUuwqweJHaLOhwqRjBYwAkHECyWOkc4b6kKsKJeVn0SuE2pQTxZ4HRXajbqb9VD0PVJNL9kEg33gr_Lb5-tWLjxdkXCqbZVM7GepzBOc0Kaj1CMzYtTFu7rbN7aN-szGk6Rv57kz-ffl6T5ZdB5PLc4"/>
+</div>
+<div class="relative z-20 p-8 flex flex-col flex-grow justify-end -mt-20">
+<div class="w-14 h-14 bg-surface rounded-full border border-secondary/30 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(65,228,192,0.15)] group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl">airline_seat_legroom_extra</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Joint Replacement</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+                            Advanced kinematic alignment for knee and hip arthroplasty, focusing on restoring natural joint mechanics and rapid mobilization.
+                        </p>
+<div class="mt-auto flex items-center gap-2 text-secondary font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span>View Protocols</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-surface-container border border-surface-bright rounded-xl overflow-hidden hover:border-secondary/50 transition-all duration-300 min-h-[400px] flex flex-col cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-highest z-10"></div>
+<div class="h-48 relative z-0 overflow-hidden">
+<img alt="Sports Medicine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" data-alt="A dramatic, slow-motion capture of an athlete's knee in mid-stride during a sprint, rendered in a stylized duotone of deep navy and bright cyan. The image is abstract yet powerful, focusing on the tension and biomechanics of the joint and ligaments. The aesthetic is dynamic, modern, and high-performance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1uiEaEoWfgXjm3-WxoveCau4hd_SLS5KlAgIEbjsY7IqhzNTnAs-K-aNZ8sYulQrW2hJZfSXlo_8rOmkFbPs6jy0n2JvTmxWoq1jyBuHHkCgfp74cgULh3RXIlUxcD5Ex2zw8frLEF3odCqH1NV71HCxdbKqzJeI-LIbhZBKozmlq3Bi3M1NhSzdTWzhnKFZb9KgKUoW94wNZWO2lb9ewWJdINWM1WxFae-ncqs77S0mo-xbydTw73UQ7vCEG7vQreUKOQWteVZQ"/>
+</div>
+<div class="relative z-20 p-8 flex flex-col flex-grow justify-end -mt-20">
+<div class="w-14 h-14 bg-surface rounded-full border border-secondary/30 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(65,228,192,0.15)] group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl">directions_run</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Sports Medicine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+                            Complex ligament reconstruction and meniscal repair utilizing biological augmentation to accelerate athlete return-to-play.
+                        </p>
+<div class="mt-auto flex items-center gap-2 text-secondary font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span>View Protocols</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-surface-container border border-surface-bright rounded-xl overflow-hidden hover:border-secondary/50 transition-all duration-300 min-h-[400px] flex flex-col cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-highest z-10"></div>
+<div class="h-48 relative z-0 overflow-hidden">
+<img alt="Arthroscopy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" data-alt="A macro shot of a sleek, fiber-optic arthroscopic camera probe glowing with an intense cyan light at its tip, set against a pitch-black background. The metallic texture of the instrument is incredibly sharp, illustrating minimally invasive surgical tools. The lighting creates a high-tech, precise, and futuristic medical atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy0lObYAi7RRK_z9bFn2H5W6y8-l8vg1pWHGoeH9CX9bX_MVm26doJS7bR2wSncxU2aUw3T0I1-PEbA4wPrAhcQVNnvEQgBgM8aoelGFBpLm9TshR9J-RpbWZdFL2RQcruyFTR2vkJgbOlRgK2x0dbaKO3-AsbBYZQO0GoZJ65QtL6-xpCbSAaekijnnGOrpeupzsYdeccmXiVv6Q9A85h9nvxYo6M9fjtgZkASse37OLRHeAMEdeiv3W2CZaIkAhpsWHSaN10-bk"/>
+</div>
+<div class="relative z-20 p-8 flex flex-col flex-grow justify-end -mt-20">
+<div class="w-14 h-14 bg-surface rounded-full border border-secondary/30 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(65,228,192,0.15)] group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl">visibility</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Advanced Arthroscopy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+                            Minimally invasive diagnostic and operative techniques for shoulder, knee, and ankle pathology, ensuring minimal tissue disruption.
+                        </p>
+<div class="mt-auto flex items-center gap-2 text-secondary font-label-sm text-label-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+<span>View Protocols</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Surgical Excellence Stats -->
+<section class="py-section-gap-desktop bg-surface-container-low border-y border-surface-bright">
+<div class="max-w-container-max mx-auto px-grid-margin">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-surface-bright">
+<div class="p-6 text-center group">
+<div class="font-display-lg text-display-lg text-secondary mb-2 group-hover:scale-110 transition-transform duration-300">3k+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Successful Surgeries</div>
+</div>
+<div class="p-6 text-center group pt-10 md:pt-6">
+<div class="font-display-lg text-display-lg text-secondary mb-2 group-hover:scale-110 transition-transform duration-300">98%</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Patient Satisfaction</div>
+</div>
+<div class="p-6 text-center group pt-10 md:pt-6">
+<div class="font-display-lg text-display-lg text-secondary mb-2 group-hover:scale-110 transition-transform duration-300">&lt;1%</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Complication Rate</div>
+</div>
+<div class="p-6 text-center group pt-10 md:pt-6">
+<div class="font-display-lg text-display-lg text-secondary mb-2 group-hover:scale-110 transition-transform duration-300">15+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Years Expertise</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-secondary/10 relative w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-base px-grid-margin py-section-gap-desktop max-w-container-max mx-auto">
+<!-- Brand / Copyright -->
+<div class="md:col-span-2 flex flex-col justify-between mb-10 md:mb-0">
+<div class="font-headline-md text-headline-md text-secondary mb-4">
+                    Dr. Vivian R D'Almeida
+                </div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+                    © 2024 Dr. Vivian R D'Almeida. Surgical Excellence &amp; Innovation.
+                </div>
+</div>
+<!-- Links -->
+<div class="flex flex-col gap-4 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 transition-opacity duration-200" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 transition-opacity duration-200" href="#">Medical Disclaimer</a>
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 transition-opacity duration-200" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

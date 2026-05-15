@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ── Light theme — clean clinical white ── */
+  :root {
+    --background: 210 40% 99%;
+    --foreground: 222 47% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 13%;
+
+    --primary: 169 80% 34%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 36% 95%;
+    --secondary-foreground: 222 47% 13%;
+
+    --muted: 210 36% 95%;
+    --muted-foreground: 222 14% 42%;
+
+    --accent: 169 80% 34%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 28% 88%;
+    --input: 214 28% 88%;
+    --ring: 169 80% 34%;
+
+    --surface: 210 40% 98%;
+    --surface-low: 210 38% 96%;
+    --surface-high: 0 0% 100%;
+    --surface-lowest: 213 30% 92%;
+
+    --radius: 0.5rem;
+  }
+
+  /* ── Dark theme — "Clinical Precision": deep navy + surgical cyan ── */
+  .dark {
+    --background: 222 67% 10%;
+    --foreground: 226 100% 92%;
+
+    --card: 222 45% 15%;
+    --card-foreground: 226 100% 92%;
+
+    --popover: 222 60% 11%;
+    --popover-foreground: 226 100% 92%;
+
+    --primary: 167 76% 57%;
+    --primary-foreground: 168 100% 11%;
+
+    --secondary: 223 27% 25%;
+    --secondary-foreground: 226 100% 92%;
+
+    --muted: 223 36% 19%;
+    --muted-foreground: 223 14% 72%;
+
+    --accent: 167 76% 57%;
+    --accent-foreground: 168 100% 11%;
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 222 67% 10%;
+
+    --border: 223 25% 24%;
+    --input: 223 25% 24%;
+    --ring: 167 76% 57%;
+
+    --surface: 222 45% 15%;
+    --surface-low: 221 52% 13%;
+    --surface-high: 223 36% 19%;
+    --surface-lowest: 222 85% 8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+    color: hsl(var(--foreground));
+  }
+
+  /* Sleek scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--surface-lowest));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--surface-lowest));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Frosted navy panel with a faint cyan edge.
+     Kept backdrop-filter-free on purpose: over the solid navy surfaces it is
+     visually identical to a real glass blur, but costs nothing to composite —
+     which keeps scrolling smooth on mobile and low-power devices. */
+  .glass-panel {
+    @apply relative rounded-xl border;
+    background: hsl(var(--card) / 0.82);
+    border-color: hsl(var(--primary) / 0.12);
+  }
+  .glass-panel-hover {
+    @apply transition-all duration-300;
+  }
+  .glass-panel-hover:hover {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: inset 0 1px 0 0 hsl(var(--primary) / 0.12),
+      0 0 28px -10px hsl(var(--primary) / 0.25);
+  }
+
+  /* Fixed navigation bar — the one place a true backdrop blur earns its cost,
+     since live content scrolls behind it. */
+  .glass-nav {
+    background: hsl(var(--background) / 0.8);
+    @apply border-b backdrop-blur-lg;
+    border-color: hsl(var(--primary) / 0.14);
+  }
+
+  /* Technical uppercase label — the "blueprint" metadata style */
+  .eyebrow {
+    @apply inline-flex items-center font-display text-[0.72rem] font-semibold uppercase tracking-label;
+  }
+
+  /* Section vertical rhythm */
+  .section-pad {
+    @apply py-20 md:py-32;
+  }
+
+  /* Diffuse cyan bloom used behind hero / section accents */
+  .cyan-bloom {
+    @apply pointer-events-none absolute rounded-full;
+    background: radial-gradient(
+      circle,
+      hsl(var(--primary) / 0.16) 0%,
+      hsl(var(--primary) / 0) 70%
+    );
+  }
+
+  /* Data chip — categorises specialties like metadata on a scan */
+  .data-chip {
+    @apply inline-flex items-center rounded-md px-2 py-1 font-display text-[0.65rem] font-semibold uppercase tracking-[0.12em];
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      100deg,
+      hsl(var(--primary)),
+      hsl(220 90% 80%)
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animation entrance delays for staggered reveals */
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+}
