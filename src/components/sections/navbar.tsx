@@ -53,15 +53,15 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-20 w-full max-w-container items-center justify-between px-5 md:px-12">
         {/* Brand */}
-        <a href="#home" className="group flex items-center gap-2.5">
+        <a href="#home" className="group flex min-w-0 items-center gap-2.5">
           <BrandMark />
-          <span className="font-display text-base font-bold tracking-tight sm:text-lg md:text-xl">
+          <span className="font-display text-base font-bold tracking-tight whitespace-nowrap sm:text-lg md:text-xl">
             {DOCTOR.name}
           </span>
         </a>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-0.5 lg:flex">
+        <div className="hidden items-center gap-0.5 xl:flex">
           {LINKS.map((link) => (
             <a
               key={link.href}
@@ -92,7 +92,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground transition-colors hover:bg-primary/10 hover:text-primary lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground transition-colors hover:bg-primary/10 hover:text-primary xl:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -101,7 +101,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-border/60 lg:hidden">
+        <div className="border-t border-border/60 xl:hidden">
           <div className="mx-auto flex w-full max-w-container flex-col gap-1 px-5 py-4">
             {LINKS.map((link) => (
               <a
