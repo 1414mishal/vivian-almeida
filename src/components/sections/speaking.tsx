@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 type Photo = {
@@ -64,13 +63,6 @@ export function Speaking() {
                   decoding="async"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                {/* mic chip */}
-                <div className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 backdrop-blur-sm">
-                  <Mic className="h-3 w-3 text-primary" />
-                  <span className="text-[0.6rem] font-semibold uppercase tracking-[0.15em] text-white">
-                    Speaking
-                  </span>
-                </div>
               </div>
             </motion.figure>
           ))}
