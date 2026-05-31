@@ -31,7 +31,7 @@ function Hero() {
   return (
     <AuroraBackground
       id="home"
-      className="h-auto min-h-svh justify-start bg-background dark:bg-background"
+      className="h-auto min-h-svh justify-start bg-background text-foreground dark:bg-background"
     >
       {/* fade the aurora into the section below */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-t from-background to-transparent" />

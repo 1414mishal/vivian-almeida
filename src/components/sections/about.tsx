@@ -73,18 +73,22 @@ export function About() {
             <div className="cyan-bloom -right-12 -top-12 h-44 w-44" />
 
             <div className="relative">
-              {/* Monogram medallion */}
-              <div className="relative mx-auto grid h-32 w-32 place-items-center">
-                <div className="absolute inset-0 animate-float rounded-full border border-primary/25" />
-                <div className="absolute inset-[10px] rounded-full border border-primary/15" />
-                <div className="grid h-[88px] w-[88px] place-items-center rounded-full bg-gradient-to-br from-primary/30 to-primary/5 shadow-glow-sm">
-                  <span className="font-display text-3xl font-bold tracking-tight text-primary">
-                    VRD
-                  </span>
+              {/* Portrait — Dr. D'Almeida */}
+              <div className="relative mx-auto h-48 w-48 sm:h-56 sm:w-56">
+                <div className="absolute -inset-2 animate-float rounded-full border border-primary/25" />
+                <div className="absolute -inset-[3px] rounded-full border border-primary/35" />
+                <div className="absolute inset-0 overflow-hidden rounded-full shadow-glow-sm ring-1 ring-primary/40">
+                  <img
+                    src="./images/doctor-portrait.jpg"
+                    alt={`${DOCTOR.name}, ${DOCTOR.title} — Mangaluru`}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-[center_20%]"
+                  />
                 </div>
               </div>
 
-              <h3 className="mt-6 text-center font-display text-xl font-bold tracking-tight">
+              <h3 className="mt-7 text-center font-display text-xl font-bold tracking-tight">
                 {DOCTOR.name}
               </h3>
               <p className="mt-1 text-center text-sm text-muted-foreground">

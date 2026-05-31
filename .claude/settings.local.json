@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(curl -s -H \"Authorization: token $\\(gh auth token\\)\" https://api.github.com/user)",
+      "Bash(git push *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Untrack stitch_ortho_1_digital_experience.zip \\(accidentally committed\\) *)"
     ]
   }
 }

@@ -8,6 +8,7 @@ const QUICK_LINKS = [
   { label: "Patient Journey", href: "#journey" },
   { label: "Visiting Hours", href: "#hours" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Speaking", href: "#speaking" },
   { label: "Press & Research", href: "#media" },
   { label: "Contact", href: "#contact" },
 ];
