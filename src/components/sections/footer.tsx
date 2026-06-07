@@ -6,6 +6,7 @@ const QUICK_LINKS = [
   { label: "Specialties", href: "#specialties" },
   { label: "Conditions", href: "#conditions" },
   { label: "About", href: "#about" },
+  { label: "Watch", href: "#watch" },
   { label: "Patient Journey", href: "#journey" },
   { label: "Visiting Hours", href: "#hours" },
   { label: "Reviews", href: "#reviews" },

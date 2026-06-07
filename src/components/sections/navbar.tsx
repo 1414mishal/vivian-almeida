@@ -12,6 +12,7 @@ const LINKS = [
   { label: "Specialties", href: "#specialties" },
   { label: "Conditions", href: "#conditions" },
   { label: "About", href: "#about" },
+  { label: "Watch", href: "#watch" },
   { label: "Journey", href: "#journey" },
   { label: "Hours", href: "#hours" },
   { label: "Reviews", href: "#reviews" },
