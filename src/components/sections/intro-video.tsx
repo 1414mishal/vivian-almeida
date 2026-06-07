@@ -32,8 +32,8 @@ export function IntroVideo() {
           <VideoPlayer
             thumbnailUrl="./video/dr-vivian-intro-thumb.jpg"
             videoUrl="./video/dr-vivian-intro.mp4"
-            title={DOCTOR.name}
-            description={`${DOCTOR.title} · ${DOCTOR.practice}, ${DOCTOR.city}`}
+            title="Knee Surgery"
+            description={`${DOCTOR.name} · ${DOCTOR.practice}, ${DOCTOR.city}`}
             aspectRatio="16/9"
             className="rounded-2xl ring-1 ring-border/60"
           />
