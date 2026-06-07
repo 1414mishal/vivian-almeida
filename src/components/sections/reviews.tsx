@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bandage, Bone, Quote, Star, Stethoscope } from "lucide-react";
+import { Bandage, Bone, Quote, Stethoscope } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Button } from "@/components/ui/button";
-import { DOCTOR } from "@/lib/clinic";
 
 const TESTIMONIALS = [
   {
@@ -79,18 +77,7 @@ export function Reviews() {
           ))}
         </div>
 
-        {/* Read more on Google */}
         <div className="mt-10 flex flex-col items-center gap-4 text-center">
-          <Button
-            asChild
-            variant="outline"
-            className="gap-2 border-primary/40 font-semibold text-foreground hover:bg-primary/10 hover:text-foreground"
-          >
-            <a href={DOCTOR.reviewsUrl} target="_blank" rel="noreferrer">
-              <Star className="h-4 w-4 fill-primary text-primary" />
-              Read patient reviews on Google
-            </a>
-          </Button>
           <p className="text-xs text-muted-foreground">
             Patient feedback shared with consent · names withheld for privacy.
           </p>

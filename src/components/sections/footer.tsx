@@ -1,4 +1,5 @@
-import { Bone, MapPin, Phone } from "lucide-react";
+import { Instagram, MapPin } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { CREDENTIALS_SHORT, DOCTOR, MAPS_LINK, SPECIALTIES } from "@/lib/clinic";
 
 const QUICK_LINKS = [
@@ -23,10 +24,11 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-primary/25 bg-primary/10">
-                <Bone
-                  className="h-[18px] w-[18px] -rotate-45 text-primary"
-                  strokeWidth={2}
+              <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-primary/25 bg-primary/10">
+                <img
+                  src="./images/logo.png"
+                  alt={`${DOCTOR.practice} logo`}
+                  className="h-full w-full object-contain p-1"
                 />
               </span>
               <span className="font-display text-lg font-bold tracking-tight">
@@ -43,18 +45,22 @@ export function Footer() {
             </p>
             <div className="mt-5 space-y-2.5">
               <a
-                href={DOCTOR.phoneHref}
+                href={DOCTOR.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-2.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
-                <Phone className="h-4 w-4 text-primary" />
-                {DOCTOR.phoneDisplay}
+                <WhatsAppIcon className="h-4 w-4 text-primary" />
+                Message on WhatsApp · {DOCTOR.whatsappDisplay}
               </a>
               <a
-                href={DOCTOR.secondaryPhoneHref}
+                href={DOCTOR.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-2.5 text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
-                <Phone className="h-4 w-4 text-primary" />
-                {DOCTOR.secondaryPhoneDisplay}
+                <Instagram className="h-4 w-4 text-primary" />
+                {DOCTOR.instagramHandle}
               </a>
               <a
                 href={MAPS_LINK}

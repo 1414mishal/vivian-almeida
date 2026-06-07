@@ -24,16 +24,19 @@ export function Conditions() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12 flex flex-wrap justify-center gap-3"
+          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {CONDITIONS.map((condition) => (
-            <span
-              key={condition}
-              className="glass-panel glass-panel-hover inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-sm font-medium text-foreground"
+            <div
+              key={condition.title}
+              className="glass-panel glass-panel-hover flex flex-col gap-2 p-6"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              {condition}
-            </span>
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              <h3 className="font-display text-base font-semibold tracking-tight text-foreground">
+                {condition.title}
+              </h3>
+              <p className="text-sm text-muted-foreground">{condition.blurb}</p>
+            </div>
           ))}
         </motion.div>
 

@@ -28,7 +28,7 @@ const QUICK_FACTS = [
   },
   {
     icon: GraduationCap,
-    label: "Faculty",
+    label: "Professor & Unit Chief",
     value: DOCTOR.affiliation,
   },
   {
@@ -58,7 +58,7 @@ export function About() {
         <SectionHeading
           eyebrow="The Surgeon"
           title="Trained across the world. Practising in Mangaluru."
-          description="Joint replacement and arthroscopic keyhole surgery, backed by international fellowships and faculty experience at Fr. Muller Medical College Hospital."
+          description="Joint replacement and arthroscopic keyhole surgery, backed by international fellowships and his role as professor and unit chief at Fr. Muller Medical College Hospital."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:mt-16 lg:grid-cols-12 lg:gap-10">

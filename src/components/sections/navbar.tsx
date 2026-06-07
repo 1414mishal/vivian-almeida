@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Bone, Menu, Phone, X } from "lucide-react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { Button } from "@/components/ui/button";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { DOCTOR } from "@/lib/clinic";
 import { cn } from "@/lib/utils";
 
@@ -78,6 +79,15 @@ export function Navbar() {
           <span className="hidden sm:inline-flex">
             <AnimatedThemeToggler />
           </span>
+          <a
+            href={DOCTOR.whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Message the doctor on WhatsApp"
+            className="hidden h-10 w-10 items-center justify-center rounded-md border border-primary/25 bg-primary/10 text-primary transition-colors hover:bg-primary/15 sm:inline-flex"
+          >
+            <WhatsAppIcon className="h-[18px] w-[18px]" />
+          </a>
           <Button
             asChild
             className="hidden h-10 gap-2 px-5 font-semibold shadow-glow-sm md:inline-flex"
@@ -120,7 +130,17 @@ export function Navbar() {
                   Book Appointment
                 </a>
               </Button>
-              <span className="grid h-11 w-11 place-items-center rounded-md border border-border sm:hidden">
+              <a
+                href={DOCTOR.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                aria-label="Message the doctor on WhatsApp"
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-md border border-primary/25 bg-primary/10 text-primary transition-colors hover:bg-primary/15"
+              >
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
+              </a>
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md border border-border sm:hidden">
                 <AnimatedThemeToggler />
               </span>
             </div>

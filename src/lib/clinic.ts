@@ -11,17 +11,17 @@ export const DOCTOR = {
   title: "Orthopaedic Surgeon",
   practice: "Ortho 1 Speciality Clinic",
   practiceTagline: "Orthopaedic Specialists Under One Roof",
-  practiceSubTagline: "First time in Mangalore — a clinic with joint, spine and hand specialists together under one roof.",
+  practiceSubTagline: "First time in Mangalore — a single clinic where Dr. D'Almeida personally covers joint, spine, sports and hand care under one roof.",
   building: "Amritha Poly Clinic",
   affiliation: "Fr. Muller Medical College Hospital, Mangaluru",
   city: "Mangaluru",
   region: "Karnataka",
-  phoneDisplay: "081474 21567",
-  phoneHref: "tel:+918147421567",
-  secondaryPhoneDisplay: "0824 242 1341",
-  secondaryPhoneHref: "tel:+918242421341",
-  reviewsUrl:
-    "https://www.google.com/search?q=Dr.+Vivian+R+D%27Almeida+Orthopaedic+Surgeon+Mangaluru",
+  phoneDisplay: "94496 21341",
+  phoneHref: "tel:+919449621341",
+  whatsappDisplay: "+91 74838 93488",
+  whatsappHref: "https://wa.me/917483893488",
+  instagramHandle: "@vivianroshan_10",
+  instagramUrl: "https://instagram.com/vivianroshan_10",
   address: {
     line1: "Amritha Poly Clinic, KRR Road, Hampankatta",
     line2: "near Jyothi Circle, Mangaluru, Karnataka 575001",
@@ -99,10 +99,11 @@ export const QUALIFICATIONS: Qualification[] = [
 
 /** Doctor biography — paragraphs, sourced from the practice's own profile. */
 export const BIO: string[] = [
-  "Dr. Vivian R D'Almeida is an orthopaedic surgeon based in Mangaluru, specialised in joint replacement and arthroscopic keyhole surgeries. He currently serves as faculty at Fr. Muller Medical College Hospital, Mangaluru — combining everyday clinical practice with the training of the next generation of surgeons.",
+  "Dr. Vivian R D'Almeida is an orthopaedic surgeon based in Mangaluru, specialised in joint replacement and arthroscopic keyhole surgeries. He currently serves as professor and unit chief at Fr. Muller Medical College Hospital, Mangaluru — combining everyday clinical practice with the training of the next generation of surgeons.",
   "After completing his MBBS at St. John's Medical College, Bangalore, he finished his MS in Orthopaedics in 2009. He went on to earn the MRCS from the Royal College of Surgeons of Ireland in 2010 and of England in 2011, followed by a fellowship in Knee Surgery at Paik Hospitals, Seoul in 2012. He has also trained in Sports Medicine at Ortho One Hospital, Coimbatore and the Hospital for Joint Diseases, New York University.",
   "His expertise mainly involves hip and knee replacement surgery, ligament injuries and fracture fixation. He performs a wide array of procedures that are patient-specific, with personalised care for people from every walk of life.",
-  "Dr. D'Almeida is part of a team initiative at Ortho 1 Speciality Clinic, located in the heart of Mangaluru — a first-of-its-kind orthopaedic practice in the city, bringing joint, spine and hand specialists together under one roof.",
+  "Dr. D'Almeida personally leads Ortho 1 Speciality Clinic, located in the heart of Mangaluru — a first-of-its-kind orthopaedic practice in the city, where he covers the full range of joint, spine, sports and hand care under one roof.",
+  "Beyond medicine, Dr. D'Almeida was also a keen sportsman — representing his state and university in football, table tennis and hockey.",
 ];
 
 /* ── Opening hours ───────────────────────────────────────────────
@@ -119,11 +120,11 @@ export type ScheduleEntry = {
 
 export const SCHEDULE: ScheduleEntry[] = [
   { day: "Sunday", short: "Sun", hours: null },
-  { day: "Monday", short: "Mon", hours: { open: "10:00", close: "11:30" } },
-  { day: "Tuesday", short: "Tue", hours: { open: "17:00", close: "19:30" } },
+  { day: "Monday", short: "Mon", hours: { open: "10:30", close: "12:30" } },
+  { day: "Tuesday", short: "Tue", hours: { open: "17:30", close: "19:30" } },
   { day: "Wednesday", short: "Wed", hours: { open: "13:00", close: "14:30" } },
-  { day: "Thursday", short: "Thu", hours: { open: "10:00", close: "11:30" } },
-  { day: "Friday", short: "Fri", hours: { open: "17:00", close: "19:30" } },
+  { day: "Thursday", short: "Thu", hours: { open: "10:30", close: "12:30" } },
+  { day: "Friday", short: "Fri", hours: { open: "17:30", close: "19:30" } },
   { day: "Saturday", short: "Sat", hours: { open: "13:00", close: "14:30" } },
 ];
 
@@ -262,7 +263,7 @@ export const SPECIALTIES: Specialty[] = [
     title: "Backache Problems",
     blurb: "Spine & back care",
     description:
-      "Evaluation and treatment of back pain and spine conditions — surgical and non-surgical — supported by an in-house spine specialist at Ortho 1.",
+      "Evaluation and treatment of back pain and spine conditions — surgical and non-surgical, personally managed by Dr. D'Almeida.",
     chips: ["Back Pain", "Spine", "Disc"],
   },
   {
@@ -278,7 +279,7 @@ export const SPECIALTIES: Specialty[] = [
     title: "Hand & Micro Vascular Surgery",
     blurb: "Fine surgical care",
     description:
-      "Hand, wrist and micro-vascular procedures — delivered with the in-house hand specialist who is part of the Ortho 1 team.",
+      "Hand, wrist and micro-vascular procedures — delivered with the same precision and personal attention as every other speciality at Ortho 1.",
     chips: ["Hand", "Wrist", "Micro Surgery"],
   },
   {
@@ -301,15 +302,19 @@ export const SPECIALTIES: Specialty[] = [
 
 /* ── Conditions treated ── */
 
-export const CONDITIONS: string[] = [
-  "ACL Tears",
-  "Meniscus Injuries",
-  "Knee Pain",
-  "Hip Pain",
-  "Shoulder Pain",
-  "Arthritis",
-  "Sports Injuries",
-  "Fractures & Trauma",
+export type Condition = {
+  title: string;
+  blurb: string;
+};
+
+export const CONDITIONS: Condition[] = [
+  { title: "Joint Pain", blurb: "Knee, hip & shoulder" },
+  { title: "Sports & Ligament Injuries", blurb: "Injury & rehabilitation" },
+  { title: "Fractures & Trauma", blurb: "Bone injury management" },
+  { title: "Back Pain", blurb: "Spine & back care" },
+  { title: "Geriatric Orthopaedics", blurb: "Care for older adults" },
+  { title: "Degenerative Medicine", blurb: "Long-term joint conditions" },
+  { title: "Hand, Foot & Ankle Problems", blurb: "Fine surgical care" },
 ];
 
 /* ── Practice highlights ── */
@@ -364,8 +369,8 @@ export type Highlight = { key: HighlightKey; title: string; text: string };
 export const HIGHLIGHTS: Highlight[] = [
   {
     key: "faculty",
-    title: "Faculty Surgeon",
-    text: "Serves as faculty at Fr. Muller Medical College Hospital, Mangaluru — training the next generation of orthopaedic surgeons.",
+    title: "Professor & Unit Chief",
+    text: "Serves as professor and unit chief at Fr. Muller Medical College Hospital, Mangaluru — training the next generation of orthopaedic surgeons.",
   },
   {
     key: "global",
@@ -392,6 +397,7 @@ export type Location = {
   pin?: string;
   timing?: string;
   phones?: { display: string; href: string }[];
+  whatsapp?: { display: string; href: string };
   mapsUrl: string;
   kind: LocationKind;
 };
@@ -404,10 +410,7 @@ export const LOCATIONS: Location[] = [
     area: "near Jyothi Circle",
     city: "Mangaluru, Karnataka 575001",
     timing: "Monday to Saturday — see visiting hours",
-    phones: [
-      { display: "081474 21567", href: "tel:+918147421567" },
-      { display: "0824 242 1341", href: "tel:+918242421341" },
-    ],
+    phones: [{ display: "94496 21341", href: "tel:+919449621341" }],
     mapsUrl: "https://share.google/ZeDK0t5Ikj9nBeTmX",
     kind: "primary",
   },
@@ -418,7 +421,7 @@ export const LOCATIONS: Location[] = [
     area: "Bajpe",
     city: "Mangaluru",
     timing: "Monday & Thursday",
-    phones: [{ display: "081474 21567", href: "tel:+918147421567" }],
+    whatsapp: { display: "+91 74838 93488", href: "https://wa.me/917483893488" },
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Akarshan+Building+Bajpe+Mangaluru",
     kind: "weekly",
@@ -427,17 +430,9 @@ export const LOCATIONS: Location[] = [
     name: "Mount Rosary Hospital",
     area: "Alangar",
     city: "Moodubidri",
-    timing: "Every Sunday",
+    timing: "Every Thursday · 4:30 – 7:00 PM",
     mapsUrl: "https://g.page/MountRosary?share",
     kind: "weekly",
-  },
-  {
-    name: "UR Doctor Clinic",
-    area: "Kanhangad",
-    city: "Kasaragod, Kerala",
-    timing: "By appointment only",
-    mapsUrl: "https://goo.gl/maps/3bw5SFJ9BKFJybQt8",
-    kind: "appointment",
   },
 ];
 

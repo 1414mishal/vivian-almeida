@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CalendarClock, Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import {
   DOCTOR,
   LOCATIONS,
@@ -74,6 +75,19 @@ function LocationCard({
             <span className="font-medium">{phone.display}</span>
           </a>
         ))}
+        {location.whatsapp && (
+          <a
+            href={location.whatsapp.href}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-start gap-2.5 text-foreground transition-colors hover:text-primary"
+          >
+            <WhatsAppIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <span className="font-medium">
+              Message on WhatsApp · {location.whatsapp.display}
+            </span>
+          </a>
+        )}
       </div>
 
       <a
@@ -104,8 +118,8 @@ export function Contact() {
       <div className="relative mx-auto w-full max-w-container px-5 md:px-12">
         <SectionHeading
           eyebrow="Visit the Clinic"
-          title="Four locations across Mangaluru & Kanhangad"
-          description="The main clinic in Hampankatta runs Monday to Saturday — with additional weekly visits at three partner clinics. Pick whichever is easiest to reach."
+          title="Three locations across Mangaluru"
+          description="The main clinic in Hampankatta runs Monday to Saturday — with additional weekly visits at two partner clinics. Pick whichever is easiest to reach."
         />
 
         {/* Primary clinic — info + map */}
@@ -163,7 +177,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button
                 asChild
                 className="h-12 flex-1 gap-2 font-semibold shadow-glow-sm"
@@ -171,6 +185,16 @@ export function Contact() {
                 <a href={DOCTOR.phoneHref}>
                   <Phone className="h-4 w-4" />
                   Call Clinic
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="h-12 flex-1 gap-2 border-primary/40 font-semibold text-foreground hover:bg-primary/10 hover:text-foreground"
+              >
+                <a href={DOCTOR.whatsappHref} target="_blank" rel="noreferrer">
+                  <WhatsAppIcon className="h-4 w-4" />
+                  WhatsApp the Doctor
                 </a>
               </Button>
               <Button
@@ -211,7 +235,7 @@ export function Contact() {
         {/* Other locations */}
         <div className="mt-10">
           <p className="eyebrow text-primary">Other weekly visits</p>
-          <div className="mt-5 grid gap-5 md:grid-cols-3">
+          <div className="mt-5 grid gap-5 sm:grid-cols-2 md:max-w-2xl">
             {others.map((location, index) => (
               <motion.div
                 key={location.name}
