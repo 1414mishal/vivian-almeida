@@ -5,6 +5,24 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { VideoPlayer } from "@/components/ui/video-thumbnail-player";
 import { DOCTOR } from "@/lib/clinic";
 
+const VIDEOS = [
+  {
+    thumbnailUrl: "./video/dr-vivian-intro-thumb.jpg",
+    videoUrl: "./video/dr-vivian-intro.mp4",
+    title: "Knee Surgery",
+  },
+  {
+    thumbnailUrl: "./video/dr-vivian-clip-2-thumb.jpg",
+    videoUrl: "./video/dr-vivian-clip-2.mp4",
+    title: "Knee Anatomy",
+  },
+  {
+    thumbnailUrl: "./video/dr-vivian-clip-3-thumb.jpg",
+    videoUrl: "./video/dr-vivian-clip-3.mp4",
+    title: "Ligament Reconstruction",
+  },
+];
+
 export function IntroVideo() {
   return (
     <section
@@ -22,22 +40,26 @@ export function IntroVideo() {
           description={`Press play whenever you're ready — a short video introduction to ${DOCTOR.name} and ${DOCTOR.practice}. Sound is entirely optional; watch with or without it.`}
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-12 max-w-3xl md:mt-16"
-        >
-          <VideoPlayer
-            thumbnailUrl="./video/dr-vivian-intro-thumb.jpg"
-            videoUrl="./video/dr-vivian-intro.mp4"
-            title="Knee Surgery"
-            description={`${DOCTOR.name} · ${DOCTOR.practice}, ${DOCTOR.city}`}
-            aspectRatio="16/9"
-            className="rounded-2xl ring-1 ring-border/60"
-          />
-        </motion.div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 md:mt-16 md:grid-cols-3">
+          {VIDEOS.map((video, index) => (
+            <motion.div
+              key={video.videoUrl}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
+            >
+              <VideoPlayer
+                thumbnailUrl={video.thumbnailUrl}
+                videoUrl={video.videoUrl}
+                title={video.title}
+                description={`${DOCTOR.name} · ${DOCTOR.practice}, ${DOCTOR.city}`}
+                aspectRatio="16/9"
+                className="rounded-2xl ring-1 ring-border/60"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
