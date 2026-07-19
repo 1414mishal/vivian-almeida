@@ -456,6 +456,16 @@ export type MediaItem = {
 
 export const MEDIA: MediaItem[] = [
   {
+    date: "17 Jul 2026",
+    title:
+      "Father Muller Performs Coastal Karnataka's First Robotic Hip Replacement",
+    description:
+      "Dr. Vivian Roshan D'Almeida leads the region's first full robotic total hip replacement at Father Muller Medical College Hospital, Mangaluru.",
+    source: "News Karnataka",
+    url: "https://newskarnataka.com/mangaluru/father-muller-performs-coastal-karnatakas-first-robotic-hip-replacement-surgery/17072026/",
+    category: "press",
+  },
+  {
     date: "03 Jan 2017",
     title: "Bolaike Daaiz — Konkani Health Show",
     description:

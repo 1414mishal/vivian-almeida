@@ -132,22 +132,22 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className={cn(
-                  "flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300",
+                  "flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 sm:h-14 sm:w-14",
                   "group-hover:scale-110 group-hover:bg-white/30",
                   isInView && "shadow-[0_0_0_0_rgba(255,255,255,0.35)] animate-pulse-ring"
                 )}
               >
-                <Play className="h-8 w-8 fill-white text-white" strokeWidth={1.5} />
+                <Play className="h-6 w-6 fill-white text-white sm:h-7 sm:w-7" strokeWidth={1.5} />
               </div>
             </div>
 
             {/* Title and description */}
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-              <h3 className="text-lg font-bold text-white sm:text-2xl">{title}</h3>
+            <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+              <h3 className="text-sm font-bold text-white sm:text-base">{title}</h3>
               {description && (
-                <p className="mt-1 text-xs text-white/80 sm:text-sm">{description}</p>
+                <p className="mt-1 text-[0.65rem] text-white/80 sm:text-xs">{description}</p>
               )}
-              <p className="mt-2 text-[0.7rem] uppercase tracking-[0.16em] text-white/60">
+              <p className="mt-1.5 text-[0.6rem] uppercase tracking-[0.14em] text-white/60">
                 Tap to play · sound optional
               </p>
             </div>

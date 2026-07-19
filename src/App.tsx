@@ -5,6 +5,7 @@ import { Conditions } from "@/components/sections/conditions";
 import { Stats } from "@/components/sections/stats";
 import { About } from "@/components/sections/about";
 import { IntroVideo } from "@/components/sections/intro-video";
+import { RoboticMilestone } from "@/components/sections/robotic-milestone";
 import { PatientJourney } from "@/components/sections/patient-journey";
 import { Hours } from "@/components/sections/hours";
 import { Reviews } from "@/components/sections/reviews";
@@ -23,6 +24,7 @@ export default function App() {
       <Stats />
       <About />
       <IntroVideo />
+      <RoboticMilestone />
       <PatientJourney />
       <Hours />
       <Reviews />

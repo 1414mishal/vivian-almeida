@@ -14,12 +14,12 @@ const VIDEOS = [
   {
     thumbnailUrl: "./video/dr-vivian-clip-2-thumb.jpg",
     videoUrl: "./video/dr-vivian-clip-2.mp4",
-    title: "Knee Anatomy",
+    title: "Arthroscopic ACL Reconstruction — Part 1",
   },
   {
     thumbnailUrl: "./video/dr-vivian-clip-3-thumb.jpg",
     videoUrl: "./video/dr-vivian-clip-3.mp4",
-    title: "Ligament Reconstruction",
+    title: "Arthroscopic ACL Reconstruction — Part 2",
   },
 ];
 
